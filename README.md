@@ -70,17 +70,22 @@ In the project directory, you can run the following commands:
 The project follows a standard Vite + React structure, with key directories organized as follows:
 
 /src
-├── components/ # Reusable UI components
-│ ├── AppointmentForm.tsx
-│ ├── CalendarGrid.tsx
-│ ├── CalendarHeader.tsx
-│ ├── LoginForm.tsx
-│ └── MobileCalendar.tsx
-├── data/ # Mock data for patients and doctors
-│ └── mockData.ts
-├── hooks/ # Custom React hooks
-│ ├── useAppointments.ts
-│ └── useLocalStorage.ts
-├── types.ts # TypeScript type definitions
-├── App.tsx # Main application component
-└── main.tsx # Application entry point
+├── components/       # Reusable UI components
+│   ├── AppointmentForm.tsx
+│   ├── CalendarGrid.tsx
+│   ├── CalendarHeader.tsx
+│   ├── LoginForm.tsx
+│   └── MobileCalendar.tsx
+
+├── data/             # Mock data for patients and doctors
+│   └── mockData.ts
+
+├── hooks/            # Custom React hooks
+│   ├── useAppointments.ts
+│   └── useLocalStorage.ts
+
+├── types.ts          # TypeScript type definitions
+
+├── App.tsx           # Main application component
+
+└── main.tsx          # Application entry point
