@@ -41,7 +41,7 @@ export function CalendarHeader({
               <h1 className="text-xl md:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
                 MediPlus Pro
               </h1>
-              <p className="text-xs md:text-sm text-gray-500 dark:text-gray-400 hidden sm:block">Clinical Staff Appointment System</p>
+              <p className="text-xs md:text-sm text-gray-500 dark:text-gray-400 hidden sm:block">Clinic Staff Appointment App </p>
             </div>
           </div>
           

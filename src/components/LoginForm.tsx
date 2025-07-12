@@ -64,7 +64,7 @@ export function LoginForm({ onLogin }: LoginFormProps) {
               MediPlus Pro
             </h1>
             <p className="text-gray-600 dark:text-gray-300 text-lg">
-              Clinical Staff Appointment Management
+            Clinic Staff Appointment App
             </p>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full mx-auto mt-4"></div>
           </div>
