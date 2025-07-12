@@ -1,5 +1,4 @@
-# Clinic Staff Appointemnt Calendar Application - A React & Vite Scheduling Application
-
+# Clinic Staff Appointemnt Calendar Application 
 # Introduction
 
 An interactive and responsive calendar application designed for clinic staff to manage patient appointments. Built with a modern tech stack including React, Vite, TypeScript, and Tailwind CSS, this project provides a clean, fast, and intuitive user interface.
