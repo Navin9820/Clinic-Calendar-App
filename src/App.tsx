@@ -13,7 +13,9 @@ function App() {
   const [darkMode, setDarkMode] = useLocalStorage<boolean>('dark-mode', false);
   const [currentDate, setCurrentDate] = useState(new Date());
   const [showAppointmentForm, setShowAppointmentForm] = useState(false);
-  const [selectedAppointment, setSelectedAppointment] = useState<Appointment | undefined>();
+  const [selectedAppointment, setSelectedAppointment] = useState<
+    Appointment | undefined
+  >();
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   const {
@@ -38,7 +40,7 @@ function App() {
     // Enhanced dark mode implementation
     const root = document.documentElement;
     const body = document.body;
-    
+
     if (darkMode) {
       root.classList.add('dark');
       body.classList.add('dark');
@@ -48,7 +50,7 @@ function App() {
       body.classList.remove('dark');
       root.style.colorScheme = 'light';
     }
-    
+
     // Force a repaint to ensure smooth transition
     requestAnimationFrame(() => {
       root.offsetHeight;
@@ -74,11 +76,15 @@ function App() {
   };
 
   const handlePrevMonth = () => {
-    setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1));
+    setCurrentDate(
+      new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1)
+    );
   };
 
   const handleNextMonth = () => {
-    setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1));
+    setCurrentDate(
+      new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1)
+    );
   };
 
   const handleDayClick = (date: string) => {
@@ -106,7 +112,10 @@ function App() {
     return <LoginForm onLogin={handleLogin} />;
   }
 
-  const monthAppointments = getAppointmentsForMonth(currentDate.getFullYear(), currentDate.getMonth());
+  const monthAppointments = getAppointmentsForMonth(
+    currentDate.getFullYear(),
+    currentDate.getMonth()
+  );
   const dayAppointments = getAppointmentsForDate(selectedDate);
 
   return (
@@ -122,7 +131,7 @@ function App() {
         user={user}
         onLogout={handleLogout}
       />
-      
+
       <div className="p-4 md:p-6">
         {isMobile ? (
           <MobileCalendar

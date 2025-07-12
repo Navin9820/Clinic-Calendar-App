@@ -1,5 +1,14 @@
 import React, { useState } from 'react';
-import { LogIn, Mail, Lock, Eye, EyeOff, Stethoscope, Heart, Activity } from 'lucide-react';
+import {
+  LogIn,
+  Mail,
+  Lock,
+  Eye,
+  EyeOff,
+  Stethoscope,
+  Heart,
+  Activity,
+} from 'lucide-react';
 import { MOCK_CREDENTIALS } from '../data/mockData';
 
 interface LoginFormProps {
@@ -20,14 +29,17 @@ export function LoginForm({ onLogin }: LoginFormProps) {
     setIsLoading(true);
 
     // Simulate API call delay with realistic timing
-    await new Promise(resolve => setTimeout(resolve, 1200));
+    await new Promise((resolve) => setTimeout(resolve, 1200));
 
-    if (email === MOCK_CREDENTIALS.email && password === MOCK_CREDENTIALS.password) {
+    if (
+      email === MOCK_CREDENTIALS.email &&
+      password === MOCK_CREDENTIALS.password
+    ) {
       onLogin({ email, name: 'Dr. Sarah Williams' });
     } else {
       setError('Invalid credentials. Please check your email and password.');
     }
-    
+
     setIsLoading(false);
   };
 
@@ -41,8 +53,14 @@ export function LoginForm({ onLogin }: LoginFormProps) {
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-40 left-40 w-80 h-80 bg-indigo-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse" style={{ animationDelay: '4s' }}></div>
+        <div
+          className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"
+          style={{ animationDelay: '2s' }}
+        ></div>
+        <div
+          className="absolute top-40 left-40 w-80 h-80 bg-indigo-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"
+          style={{ animationDelay: '4s' }}
+        ></div>
       </div>
 
       <div className="relative max-w-md w-full">
@@ -57,14 +75,17 @@ export function LoginForm({ onLogin }: LoginFormProps) {
               </div>
               {/* Floating medical icons */}
               <Heart className="absolute -top-2 -right-2 w-6 h-6 text-red-500 animate-pulse" />
-              <Activity className="absolute -bottom-2 -left-2 w-6 h-6 text-green-500 animate-pulse" style={{ animationDelay: '1s' }} />
+              <Activity
+                className="absolute -bottom-2 -left-2 w-6 h-6 text-green-500 animate-pulse"
+                style={{ animationDelay: '1s' }}
+              />
             </div>
-            
+
             <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-3">
               MediPlus Pro
             </h1>
             <p className="text-gray-600 dark:text-gray-300 text-lg">
-            Clinic Staff Appointment App
+              Clinic Staff Appointment App
             </p>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full mx-auto mt-4"></div>
           </div>
@@ -72,7 +93,10 @@ export function LoginForm({ onLogin }: LoginFormProps) {
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Email field */}
             <div className="space-y-2">
-              <label htmlFor="email" className="block text-sm font-semibold text-gray-700 dark:text-gray-300">
+              <label
+                htmlFor="email"
+                className="block text-sm font-semibold text-gray-700 dark:text-gray-300"
+              >
                 Email Address
               </label>
               <div className="relative group">
@@ -91,7 +115,10 @@ export function LoginForm({ onLogin }: LoginFormProps) {
 
             {/* Password field */}
             <div className="space-y-2">
-              <label htmlFor="password" className="block text-sm font-semibold text-gray-700 dark:text-gray-300">
+              <label
+                htmlFor="password"
+                className="block text-sm font-semibold text-gray-700 dark:text-gray-300"
+              >
                 Password
               </label>
               <div className="relative group">
@@ -110,7 +137,11 @@ export function LoginForm({ onLogin }: LoginFormProps) {
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-blue-500 transition-colors"
                 >
-                  {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                  {showPassword ? (
+                    <EyeOff className="w-5 h-5" />
+                  ) : (
+                    <Eye className="w-5 h-5" />
+                  )}
                 </button>
               </div>
             </div>
@@ -124,7 +155,9 @@ export function LoginForm({ onLogin }: LoginFormProps) {
                   onChange={(e) => setRememberMe(e.target.checked)}
                   className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                 />
-                <span className="text-sm text-gray-600 dark:text-gray-400">Remember me</span>
+                <span className="text-sm text-gray-600 dark:text-gray-400">
+                  Remember me
+                </span>
               </label>
               <button
                 type="button"
@@ -139,11 +172,21 @@ export function LoginForm({ onLogin }: LoginFormProps) {
               <div className="bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 rounded-lg p-4 animate-pulse">
                 <div className="flex items-center">
                   <div className="flex-shrink-0">
-                    <svg className="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                    <svg
+                      className="w-5 h-5 text-red-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                        clipRule="evenodd"
+                      />
                     </svg>
                   </div>
-                  <p className="ml-3 text-red-700 dark:text-red-400 text-sm font-medium">{error}</p>
+                  <p className="ml-3 text-red-700 dark:text-red-400 text-sm font-medium">
+                    {error}
+                  </p>
                 </div>
               </div>
             )}
@@ -175,8 +218,12 @@ export function LoginForm({ onLogin }: LoginFormProps) {
                 🚀 Demo Access
               </h3>
               <div className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-                <p><strong>Email:</strong> {MOCK_CREDENTIALS.email}</p>
-                <p><strong>Password:</strong> {MOCK_CREDENTIALS.password}</p>
+                <p>
+                  <strong>Email:</strong> {MOCK_CREDENTIALS.email}
+                </p>
+                <p>
+                  <strong>Password:</strong> {MOCK_CREDENTIALS.password}
+                </p>
               </div>
               <button
                 type="button"
@@ -199,8 +246,14 @@ export function LoginForm({ onLogin }: LoginFormProps) {
         {/* Additional floating elements */}
         <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
           <div className="absolute top-10 right-10 w-2 h-2 bg-blue-400 rounded-full animate-ping"></div>
-          <div className="absolute bottom-10 left-10 w-2 h-2 bg-purple-400 rounded-full animate-ping" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute top-1/2 left-0 w-1 h-1 bg-indigo-400 rounded-full animate-ping" style={{ animationDelay: '2s' }}></div>
+          <div
+            className="absolute bottom-10 left-10 w-2 h-2 bg-purple-400 rounded-full animate-ping"
+            style={{ animationDelay: '1s' }}
+          ></div>
+          <div
+            className="absolute top-1/2 left-0 w-1 h-1 bg-indigo-400 rounded-full animate-ping"
+            style={{ animationDelay: '2s' }}
+          ></div>
         </div>
       </div>
     </div>

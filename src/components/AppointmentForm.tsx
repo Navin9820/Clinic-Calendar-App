@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { X, Save, Trash2, Clock, User, UserCheck, FileText, Calendar as CalendarIcon } from 'lucide-react';
+import {
+  X,
+  Save,
+  Trash2,
+  Clock,
+  User,
+  UserCheck,
+  FileText,
+  Calendar as CalendarIcon,
+} from 'lucide-react';
 import { Appointment } from '../types';
 import { MOCK_DOCTORS, MOCK_PATIENTS } from '../data/mockData';
 
@@ -55,7 +64,7 @@ export function AppointmentForm({
     const selectedDate = new Date(formData.date);
     const today = new Date();
     today.setHours(0, 0, 0, 0);
-    
+
     if (selectedDate < today) {
       newErrors.date = 'Cannot schedule appointments in the past';
     }
@@ -66,28 +75,33 @@ export function AppointmentForm({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) return;
 
     setIsSubmitting(true);
-    
+
     // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 800));
+    await new Promise((resolve) => setTimeout(resolve, 800));
 
     if (appointment) {
       onUpdate(appointment.id, formData);
     } else {
       onSave(formData);
     }
-    
+
     setIsSubmitting(false);
     onClose();
   };
 
   const handleDelete = async () => {
-    if (appointment && window.confirm('Are you sure you want to delete this appointment? This action cannot be undone.')) {
+    if (
+      appointment &&
+      window.confirm(
+        'Are you sure you want to delete this appointment? This action cannot be undone.'
+      )
+    ) {
       setIsSubmitting(true);
-      await new Promise(resolve => setTimeout(resolve, 500));
+      await new Promise((resolve) => setTimeout(resolve, 500));
       onDelete(appointment.id);
       onClose();
     }
@@ -104,8 +118,12 @@ export function AppointmentForm({
     return slots;
   };
 
-  const selectedDoctor = MOCK_DOCTORS.find(doc => doc.id === formData.doctorId);
-  const selectedPatient = MOCK_PATIENTS.find(pat => pat.id === formData.patientId);
+  const selectedDoctor = MOCK_DOCTORS.find(
+    (doc) => doc.id === formData.doctorId
+  );
+  const selectedPatient = MOCK_PATIENTS.find(
+    (pat) => pat.id === formData.patientId
+  );
 
   return (
     <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-50 modal-overlay">
@@ -114,15 +132,21 @@ export function AppointmentForm({
         <div className="relative p-6 border-b border-gray-200 dark:border-gray-700">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <div className={`p-3 rounded-xl ${appointment ? 'bg-blue-100 dark:bg-blue-900/30' : 'bg-green-100 dark:bg-green-900/30'}`}>
-                <CalendarIcon className={`w-6 h-6 ${appointment ? 'text-blue-600 dark:text-blue-400' : 'text-green-600 dark:text-green-400'}`} />
+              <div
+                className={`p-3 rounded-xl ${appointment ? 'bg-blue-100 dark:bg-blue-900/30' : 'bg-green-100 dark:bg-green-900/30'}`}
+              >
+                <CalendarIcon
+                  className={`w-6 h-6 ${appointment ? 'text-blue-600 dark:text-blue-400' : 'text-green-600 dark:text-green-400'}`}
+                />
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                   {appointment ? 'Edit Appointment' : 'New Appointment'}
                 </h2>
                 <p className="text-gray-500 dark:text-gray-400">
-                  {appointment ? 'Update appointment details' : 'Schedule a new appointment'}
+                  {appointment
+                    ? 'Update appointment details'
+                    : 'Schedule a new appointment'}
                 </p>
               </div>
             </div>
@@ -145,11 +169,13 @@ export function AppointmentForm({
             <div className="relative">
               <select
                 value={formData.patientId}
-                onChange={(e) => setFormData({ ...formData, patientId: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, patientId: e.target.value })
+                }
                 className={`form-input ${errors.patientId ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' : ''}`}
               >
                 <option value="">Select a patient</option>
-                {MOCK_PATIENTS.map(patient => (
+                {MOCK_PATIENTS.map((patient) => (
                   <option key={patient.id} value={patient.id}>
                     {patient.name} - {patient.phone}
                   </option>
@@ -158,8 +184,10 @@ export function AppointmentForm({
               {selectedPatient && (
                 <div className="mt-2 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
                   <div className="text-sm text-blue-800 dark:text-blue-200">
-                    <strong>{selectedPatient.name}</strong><br />
-                    📞 {selectedPatient.phone}<br />
+                    <strong>{selectedPatient.name}</strong>
+                    <br />
+                    📞 {selectedPatient.phone}
+                    <br />
                     ✉️ {selectedPatient.email}
                   </div>
                 </div>
@@ -182,26 +210,36 @@ export function AppointmentForm({
             <div className="relative">
               <select
                 value={formData.doctorId}
-                onChange={(e) => setFormData({ ...formData, doctorId: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, doctorId: e.target.value })
+                }
                 className={`form-input ${errors.doctorId ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' : ''}`}
               >
                 <option value="">Select a doctor</option>
-                {MOCK_DOCTORS.map(doctor => (
+                {MOCK_DOCTORS.map((doctor) => (
                   <option key={doctor.id} value={doctor.id}>
                     {doctor.name} - {doctor.specialty}
                   </option>
                 ))}
               </select>
               {selectedDoctor && (
-                <div className="mt-2 p-3 rounded-lg" style={{ backgroundColor: selectedDoctor.color + '15' }}>
+                <div
+                  className="mt-2 p-3 rounded-lg"
+                  style={{ backgroundColor: selectedDoctor.color + '15' }}
+                >
                   <div className="flex items-center space-x-3">
-                    <div 
+                    <div
                       className="w-4 h-4 rounded-full"
                       style={{ backgroundColor: selectedDoctor.color }}
                     />
                     <div className="text-sm">
-                      <strong style={{ color: selectedDoctor.color }}>{selectedDoctor.name}</strong><br />
-                      <span className="text-gray-600 dark:text-gray-400">{selectedDoctor.specialty}</span>
+                      <strong style={{ color: selectedDoctor.color }}>
+                        {selectedDoctor.name}
+                      </strong>
+                      <br />
+                      <span className="text-gray-600 dark:text-gray-400">
+                        {selectedDoctor.specialty}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -225,7 +263,9 @@ export function AppointmentForm({
               <input
                 type="date"
                 value={formData.date}
-                onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, date: e.target.value })
+                }
                 className={`form-input ${errors.date ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' : ''}`}
               />
               {errors.date && (
@@ -243,11 +283,13 @@ export function AppointmentForm({
               </label>
               <select
                 value={formData.time}
-                onChange={(e) => setFormData({ ...formData, time: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, time: e.target.value })
+                }
                 className={`form-input ${errors.time ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' : ''}`}
               >
                 <option value="">Select time</option>
-                {generateTimeSlots().map(time => (
+                {generateTimeSlots().map((time) => (
                   <option key={time} value={time}>
                     {time}
                   </option>
@@ -270,7 +312,9 @@ export function AppointmentForm({
             </label>
             <textarea
               value={formData.notes}
-              onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, notes: e.target.value })
+              }
               rows={4}
               className="form-input resize-none"
               placeholder="Add any additional notes or special instructions..."
@@ -293,7 +337,7 @@ export function AppointmentForm({
                 </button>
               )}
             </div>
-            
+
             {/* Save/Cancel buttons */}
             <div className="flex space-x-3">
               <button

@@ -4,14 +4,15 @@
 
 /* Enhanced dark mode transitions */
 * {
-  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-property:
+    background-color, border-color, color, fill, stroke, opacity, box-shadow,
+    transform;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 300ms;
 }
-.form-input{
+.form-input {
   padding-left: 2rem !important;
 }
-
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
@@ -84,8 +85,12 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideInUp {
@@ -124,8 +129,12 @@
 }
 
 @keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Pulse animation for loading states */
@@ -165,7 +174,9 @@
 }
 
 .dark .card-hover:hover {
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.4),
+    0 10px 10px -5px rgba(0, 0, 0, 0.2);
 }
 
 /* Smooth color transitions for dark mode */
@@ -186,7 +197,7 @@ body {
   .mobile-padding {
     @apply px-4 py-2;
   }
-  
+
   .mobile-text {
     @apply text-sm;
   }
