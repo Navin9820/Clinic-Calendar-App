@@ -1,7 +1,7 @@
-# Clinic Calendar - A React & Vite Scheduling Application
+# Clinic Staff Appointemnt Calendar Application - A React & Vite Scheduling Application
 
 # Introduction
-Welcome to the Clinic Calendar - A React & Vite Scheduling Application! This project is a modern, responsive, and user-friendly scheduling application designed for clinics. It provides an intuitive interface for managing patient appointments, with a focus on simplicity, ease of use, and a modern look.An interactive and responsive calendar application designed for clinic staff to manage patient appointments. Built with a modern tech stack including React, Vite, TypeScript, and Tailwind CSS, this project provides a clean, fast, and intuitive user interface.
+# Welcome to the Clinic Staff Appointemnt Calendar Application - A React & Vite Scheduling Application! This project is a modern, responsive, and user-friendly scheduling application designed for clinics. It provides an intuitive interface for managing patient appointments, with a focus on simplicity, ease of use, and a modern look.An interactive and responsive calendar application designed for clinic staff to manage patient appointments. Built with a modern tech stack including React, Vite, TypeScript, and Tailwind CSS, this project provides a clean, fast, and intuitive user interface.
 
 
 # ✨ Features
@@ -60,7 +60,7 @@ In the project directory, you can run the following commands:
 # 📂 Project Structure
 The project follows a standard Vite + React structure, with key directories organized as follows:
 
-/src
+# /src
 ├── components/       # Reusable UI components
 │   ├── ui/           # Shadcn UI components
 │   ├── AppointmentForm.tsx
