@@ -198,7 +198,7 @@
 
 /* Enhanced card hover effects */
 .card-hover {
-  @apply transition-all duration-400 hover:shadow-2xl hover:-translate-y-2;
+  @apply transition-all duration-300 hover:shadow-2xl hover:-translate-y-2;
 }
 
 .dark .card-hover:hover {
